@@ -1,0 +1,333 @@
+{% extends "base.html" %}
+
+{% block title %}Home - Visa Approval Prediction | AI-Powered Visa Intelligence{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="gradient-text">AI-Powered</span> Visa Approval Prediction
+                </h1>
+                <p class="hero-subtitle">
+                    Leverage Machine Learning to estimate H-1B visa case outcomes with confidence. 
+                    Get instant predictions based on historical data patterns.
+                </p>
+                <div class="hero-cta">
+                    <a href="#predict" class="btn btn-primary btn-large">
+                        <span>Start Prediction</span>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M13 7l5 5-5 5M6 12h12"/>
+                        </svg>
+                    </a>
+                    <a href="#how-it-works" class="btn btn-secondary btn-large">
+                        Learn More
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">94%</span>
+                        <span class="stat-label">Accuracy</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">1.7M+</span>
+                        <span class="stat-label">Records</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">4</span>
+                        <span class="stat-label">ML Models</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-card">
+                    <div class="card-icon">🤖</div>
+                    <div class="card-content">
+                        <h3>ML Intelligence</h3>
+                        <p>Advanced algorithms analyze multiple factors to predict outcomes</p>
+                    </div>
+                </div>
+                <div class="hero-card">
+                    <div class="card-icon">⚡</div>
+                    <div class="card-content">
+                        <h3>Instant Results</h3>
+                        <p>Get predictions in seconds with confidence scores</p>
+                    </div>
+                </div>
+                <div class="hero-card">
+                    <div class="card-icon">📊</div>
+                    <div class="card-content">
+                        <h3>Data-Driven</h3>
+                        <p>Built on extensive H-1B visa historical data</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section id="features" class="features">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Powerful Features</h2>
+            <p class="section-subtitle">Everything you need for intelligent visa outcome estimation</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3>Accurate Predictions</h3>
+                <p>Multiple ML models trained on millions of H-1B visa applications</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔮</div>
+                <h3>Confidence Scores</h3>
+                <p>Get probability estimates for each prediction outcome</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📈</div>
+                <h3>Analytics Dashboard</h3>
+                <p>Comprehensive insights into visa approval patterns</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔌</div>
+                <h3>REST API</h3>
+                <p>Programmatic access for integration with your systems</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🛡️</div>
+                <h3>Secure & Private</h3>
+                <p>Your data is processed securely with proper validation</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🚀</div>
+                <h3>Fast Performance</h3>
+                <p>Optimized for speed with instant prediction results</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- How It Works Section -->
+<section id="how-it-works" class="how-it-works">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">How It Works</h2>
+            <p class="section-subtitle">Simple 3-step process to get your prediction</p>
+        </div>
+        <div class="steps-container">
+            <div class="step-item">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>Enter Application Details</h3>
+                    <p>Fill in employer information, job title, wage, and location</p>
+                </div>
+            </div>
+            <div class="step-item">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3>AI Analysis</h3>
+                    <p>Our ML model analyzes your data against historical patterns</p>
+                </div>
+            </div>
+            <div class="step-item">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h3>Get Prediction</h3>
+                    <p>Receive instant outcome with confidence score</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Prediction Section -->
+<section id="predict" class="prediction-section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Make a Prediction</h2>
+            <p class="section-subtitle">Enter your visa application details below</p>
+        </div>
+        <div class="prediction-wrapper">
+            <div class="prediction-form-container">
+                <form id="predictionForm" method="POST" action="{{ url_for('predict') }}">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="employer_name">
+                                <span class="label-icon">🏢</span>
+                                Employer Name *
+                            </label>
+                            <input 
+                                type="text" 
+                                id="employer_name" 
+                                name="employer_name" 
+                                required
+                                placeholder="e.g., Google Inc."
+                                maxlength="200"
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="job_title">
+                                <span class="label-icon">💼</span>
+                                Job Title *
+                            </label>
+                            <input 
+                                type="text" 
+                                id="job_title" 
+                                name="job_title" 
+                                required
+                                placeholder="e.g., Software Engineer"
+                                maxlength="200"
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="full_time_position">
+                                <span class="label-icon">⏰</span>
+                                Full Time Position *
+                            </label>
+                            <select id="full_time_position" name="full_time_position" required>
+                                <option value="Y">Yes</option>
+                                <option value="N">No</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="year">
+                                <span class="label-icon">📅</span>
+                                Year *
+                            </label>
+                            <input 
+                                type="number" 
+                                id="year" 
+                                name="year" 
+                                required
+                                min="2016"
+                                max="2030"
+                                value="2024"
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="prevailing_wage">
+                                <span class="label-icon">💰</span>
+                                Prevailing Wage ($) *
+                            </label>
+                            <input 
+                                type="number" 
+                                id="prevailing_wage" 
+                                name="prevailing_wage" 
+                                required
+                                min="0"
+                                step="0.01"
+                                placeholder="e.g., 95000"
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="worksite_location">
+                                <span class="label-icon">📍</span>
+                                Worksite Location *
+                            </label>
+                            <input 
+                                type="text" 
+                                id="worksite_location" 
+                                name="worksite_location" 
+                                required
+                                placeholder="e.g., San Francisco, California"
+                                maxlength="200"
+                            >
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary btn-large" id="predictBtn">
+                            <span class="btn-text">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                Predict Visa Outcome
+                            </span>
+                            <span class="btn-loading" style="display: none;">
+                                <svg class="spinner" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10" stroke-dasharray="60" stroke-dashoffset="40"/>
+                                </svg>
+                                Processing...
+                            </span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div class="prediction-info">
+                <div class="info-card">
+                    <h3>💡 Quick Tips</h3>
+                    <ul>
+                        <li>Enter accurate employer and job information</li>
+                        <li>Wage should be in USD (annual)</li>
+                        <li>Full-time positions typically have higher approval rates</li>
+                        <li>Include complete worksite location</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3>🤖 Model Information</h3>
+                    <p><strong>Algorithm:</strong> Logistic Regression</p>
+                    <p><strong>Training Data:</strong> 1.7M+ H-1B applications</p>
+                    <p><strong>Accuracy:</strong> 94% on test set</p>
+                    <p><strong>Features:</strong> 113 engineered features</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Disclaimer Banner -->
+<section class="disclaimer-banner">
+    <div class="container">
+        <div class="disclaimer-content">
+            <span class="disclaimer-icon">⚠️</span>
+            <p>
+                <strong>Important:</strong> This prediction is an estimate generated from historical data and is not an official immigration decision. 
+                Always consult with qualified immigration professionals for official guidance.
+            </p>
+        </div>
+    </div>
+</section>
+
+<div id="errorMessage" class="error-message" style="display: none;"></div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+function toggleMobileMenu() {
+    const navLinks = document.querySelector('.nav-links');
+    navLinks.classList.toggle('active');
+}
+
+document.getElementById('predictionForm').addEventListener('submit', function(e) {
+    const btn = document.getElementById('predictBtn');
+    const btnText = btn.querySelector('.btn-text');
+    const btnLoading = btn.querySelector('.btn-loading');
+    
+    btnText.style.display = 'none';
+    btnLoading.style.display = 'inline';
+    btn.disabled = true;
+});
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
+</script>
+{% endblock %}

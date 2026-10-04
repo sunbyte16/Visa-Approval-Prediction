@@ -1,0 +1,24 @@
+# Core ML and Data Science
+pandas
+numpy
+scikit-learn
+joblib
+
+# Visualization
+matplotlib
+seaborn
+
+# Web Framework
+Flask
+Flask-CORS
+gunicorn
+
+# Utilities
+python-dotenv
+
+# Testing
+pytest
+pytest-cov
+
+# Optional - for enhanced analytics
+plotly

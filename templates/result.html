@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+
+{% block title %}Prediction Result - Visa Approval Prediction{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="page-header">
+        <h2>Prediction Result</h2>
+        <p>Based on the ML model analysis</p>
+    </div>
+
+    <div class="result-container">
+        <div class="result-card {% if result.prediction == 'CERTIFIED' %}result-success{% else %}result-denied{% endif %}">
+            <div class="result-header">
+                <h3>Prediction</h3>
+                <div class="prediction-badge {% if result.prediction == 'CERTIFIED' %}badge-success{% else %}badge-denied{% endif %}">
+                    {% if result.prediction == 'CERTIFIED' %}✓ CERTIFIED{% else %}✗ DENIED{% endif %}
+                </div>
+            </div>
+
+            <div class="result-metrics">
+                <div class="metric">
+                    <label>Estimated Probability</label>
+                    <div class="metric-value">{{ (result.probability * 100)|round(1) }}%</div>
+                    <div class="probability-bar">
+                        <div class="probability-fill {% if result.prediction == 'CERTIFIED' %}fill-success{% else %}fill-denied{% endif %}" 
+                             style="width: {{ (result.probability * 100) }}%"></div>
+                    </div>
+                </div>
+
+                <div class="metric">
+                    <label>Model</label>
+                    <div class="metric-value">{{ result.model }}</div>
+                </div>
+
+                <div class="metric">
+                    <label>Model Version</label>
+                    <div class="metric-value">{{ result.model_version }}</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="input-summary">
+            <h3>Input Summary</h3>
+            <div class="summary-grid">
+                <div class="summary-item">
+                    <label>Employer Name</label>
+                    <div class="summary-value">{{ result.input_summary.EMPLOYER_NAME }}</div>
+                </div>
+                <div class="summary-item">
+                    <label>Job Title</label>
+                    <div class="summary-value">{{ result.input_summary.JOB_TITLE }}</div>
+                </div>
+                <div class="summary-item">
+                    <label>Full Time Position</label>
+                    <div class="summary-value">{{ result.input_summary.FULL_TIME_POSITION }}</div>
+                </div>
+                <div class="summary-item">
+                    <label>Prevailing Wage</label>
+                    <div class="summary-value">${{ "{:,.2f}".format(result.input_summary.PREVAILING_WAGE) }}</div>
+                </div>
+                <div class="summary-item">
+                    <label>Year</label>
+                    <div class="summary-value">{{ result.input_summary.YEAR }}</div>
+                </div>
+                <div class="summary-item">
+                    <label>Worksite Location</label>
+                    <div class="summary-value">{{ result.input_summary.WORKSITE }}</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="class-probabilities">
+            <h3>Class Probabilities</h3>
+            <div class="probability-item">
+                <label>CERTIFIED</label>
+                <div class="probability-bar">
+                    <div class="probability-fill fill-success" 
+                         style="width: {{ (result.class_probabilities.CERTIFIED * 100) }}%"></div>
+                </div>
+                <div class="probability-value">{{ (result.class_probabilities.CERTIFIED * 100)|round(1) }}%</div>
+            </div>
+            <div class="probability-item">
+                <label>DENIED</label>
+                <div class="probability-bar">
+                    <div class="probability-fill fill-denied" 
+                         style="width: {{ (result.class_probabilities.DENIED * 100) }}%"></div>
+                </div>
+                <div class="probability-value">{{ (result.class_probabilities.DENIED * 100)|round(1) }}%</div>
+            </div>
+        </div>
+
+        <div class="result-actions">
+            <a href="{{ url_for('index') }}" class="btn btn-secondary">Make Another Prediction</a>
+            <a href="{{ url_for('analytics') }}" class="btn btn-secondary">View Analytics</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

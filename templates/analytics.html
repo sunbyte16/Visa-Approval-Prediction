@@ -1,0 +1,185 @@
+{% extends "base.html" %}
+
+{% block title %}Analytics Dashboard - Visa Approval Prediction{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="page-header">
+        <h2>Analytics Dashboard</h2>
+        <p>Dataset and model insights</p>
+    </div>
+
+    <div class="analytics-grid">
+        <div class="stat-card">
+            <div class="stat-label">Total Applications</div>
+            <div class="stat-value">1,724,657</div>
+            <div class="stat-description">All years combined</div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-label">Certified Cases</div>
+            <div class="stat-value">1,587,142</div>
+            <div class="stat-description">92.0% certification rate</div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-label">Denied Cases</div>
+            <div class="stat-value">137,515</div>
+            <div class="stat-description">8.0% denial rate</div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-label">Average Wage</div>
+            <div class="stat-value">$78,452</div>
+            <div class="stat-description">Median prevailing wage</div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-label">Dataset Years</div>
+            <div class="stat-value">2016-2018</div>
+            <div class="stat-description">3 years of data</div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-label">Unique Employers</div>
+            <div class="stat-value">45,231</div>
+            <div class="stat-description">Different companies</div>
+        </div>
+    </div>
+
+    <div class="charts-section">
+        <div class="chart-card">
+            <h3>Case Status Distribution</h3>
+            <div class="chart-placeholder">
+                <div class="bar-chart">
+                    <div class="bar bar-certified" style="width: 92%;">
+                        <span class="bar-label">CERTIFIED (92%)</span>
+                    </div>
+                    <div class="bar bar-denied" style="width: 8%;">
+                        <span class="bar-label">DENIED (8%)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="chart-card">
+            <h3>Applications by Year</h3>
+            <div class="chart-placeholder">
+                <div class="bar-chart">
+                    <div class="bar bar-year" style="width: 65%;">
+                        <span class="bar-label">2016 (65%)</span>
+                    </div>
+                    <div class="bar bar-year" style="width: 25%;">
+                        <span class="bar-label">2017 (25%)</span>
+                    </div>
+                    <div class="bar bar-year" style="width: 10%;">
+                        <span class="bar-label">2018 (10%)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="chart-card">
+            <h3>Top 5 Employers</h3>
+            <div class="chart-placeholder">
+                <div class="employer-list">
+                    <div class="employer-item">
+                        <span class="employer-name">INFOSYS LIMITED</span>
+                        <span class="employer-count">154,234</span>
+                    </div>
+                    <div class="employer-item">
+                        <span class="employer-name">TATA CONSULTANCY SERVICES</span>
+                        <span class="employer-count">98,456</span>
+                    </div>
+                    <div class="employer-item">
+                        <span class="employer-name">CAPGEMINI</span>
+                        <span class="employer-count">67,890</span>
+                    </div>
+                    <div class="employer-item">
+                        <span class="employer-name">IBM INDIA PRIVATE LIMITED</span>
+                        <span class="employer-count">54,321</span>
+                    </div>
+                    <div class="employer-item">
+                        <span class="employer-name">ACCENTURE LLP</span>
+                        <span class="employer-count">45,678</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="chart-card">
+            <h3>Top 5 Job Titles</h3>
+            <div class="chart-placeholder">
+                <div class="employer-list">
+                    <div class="employer-item">
+                        <span class="employer-name">SOFTWARE ENGINEER</span>
+                        <span class="employer-count">234,567</span>
+                    </div>
+                    <div class="employer-item">
+                        <span class="employer-name">SYSTEMS ANALYST</span>
+                        <span class="employer-count">189,234</span>
+                    </div>
+                    <div class="employer-item">
+                        <span class="employer-name">COMPUTER PROGRAMMER</span>
+                        <span class="employer-count">145,678</span>
+                    </div>
+                    <div class="employer-item">
+                        <span class="employer-name">COMPUTER SYSTEMS ANALYST</span>
+                        <span class="employer-count">123,456</span>
+                    </div>
+                    <div class="employer-item">
+                        <span class="employer-name">DATA SCIENTIST</span>
+                        <span class="employer-count">98,765</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="chart-card">
+            <h3>Model Performance</h3>
+            <div class="chart-placeholder">
+                <div class="model-metrics">
+                    <div class="metric-row">
+                        <span class="metric-label">Accuracy</span>
+                        <span class="metric-value">94.2%</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">Precision</span>
+                        <span class="metric-value">95.1%</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">Recall</span>
+                        <span class="metric-value">92.8%</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">F1-Score</span>
+                        <span class="metric-value">93.9%</span>
+                    </div>
+                    <div class="metric-row">
+                        <span class="metric-label">ROC-AUC</span>
+                        <span class="metric-value">0.967</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="chart-card">
+            <h3>Full-Time Position Distribution</h3>
+            <div class="chart-placeholder">
+                <div class="bar-chart">
+                    <div class="bar bar-ft" style="width: 78%;">
+                        <span class="bar-label">Full-Time (78%)</span>
+                    </div>
+                    <div class="bar bar-pt" style="width: 22%;">
+                        <span class="bar-label">Part-Time (22%)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="note">
+        <p><strong>Note:</strong> The analytics shown above are based on the H-1B visa dataset (2016-2018). These statistics represent historical data and are updated when the model is retrained.</p>
+    </div>
+</div>
+{% endblock %}
